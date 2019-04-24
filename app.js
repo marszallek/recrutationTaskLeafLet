@@ -21,11 +21,6 @@ const app = new Vue({
             this.tileLayer.addTo(this.map);
             this.markers.map((x) => x);
         },
-        addToTable() {
-            console.log(this.markers[0].getLatLng().lat)
-            console.log(this.markers[0].getLatLng().lng)
-            console.log(this.markers)
-        },
         addMarker(event) {
             let lat = this.map.mouseEventToLatLng(event).lat;
             let long = this.map.mouseEventToLatLng(event).lng;
