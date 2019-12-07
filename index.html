@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-        crossorigin="" defer='defer'></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer="defer"></script>
     <script src="./app.js" defer="defer"></script>
     <title>Zadanie Testowe</title>
@@ -35,7 +35,7 @@
                 </div>
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                     >
-                    <div class="card-body" id="map" @click.left.self="addMarker">
+                    <div class="card-body" id="map" @dblclick.left="addMarker">
                         <!--Map From app.js-->
                     </div>
                 </div>
@@ -62,8 +62,8 @@
                             <tbody v-for='marker in markers'>
                                 <tr>
                                     <th scope="row">{{ marker.options.title }}</th>
-                                    <th scope="row">{{ coordinates[marker.options.title][1] }}</th>
-                                    <th scope="row">{{ coordinates[marker.options.title][2] }}</th>
+                                    <th scope="row">{{ converterNS(marker.getLatLng().lat) }} {{ northSouth }}</th>
+                                    <th scope="row">{{ converterEW(marker.getLatLng().lng) }} {{ eastWest }} </th>
                                 </tr>
                             </tbody>
                         </table>
