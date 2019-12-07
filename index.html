@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="windows1256">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="nofollow">
@@ -62,8 +62,8 @@
                             <tbody v-for='marker in markers'>
                                 <tr>
                                     <th scope="row">{{ marker.options.title }}</th>
-                                    <th scope="row">{{ marker.getLatLng().lat }}</th>
-                                    <th scope="row">{{ marker.getLatLng().lng }}</th>
+                                    <th scope="row">{{ coordinates[marker.options.title][1] }}</th>
+                                    <th scope="row">{{ coordinates[marker.options.title][2] }}</th>
                                 </tr>
                             </tbody>
                         </table>
